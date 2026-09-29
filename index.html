@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260928-05-9348092","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script>
+  <script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leidy &amp; Alejo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1e1d1a;
+      --paper: #f8f5ef;
+      --cream: #fffdf8;
+      --champagne: #c6a878;
+      --taupe: #9a8878;
+      --line: rgba(88, 72, 56, 0.18);
+      --leaf: #607664;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      width: 100%;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .editorial-font { font-family: "Fraunces", serif; }
+
+    .names-script { font-family: "Great Vibes", cursive; }
+
+    .paper-texture {
+      background-image:
+        radial-gradient(circle at 18% 10%, rgba(255,255,255,0.9) 0, transparent 30%),
+        linear-gradient(115deg, rgba(255,255,255,0.42), rgba(236,227,215,0.22));
+    }
+
+    .thin-frame {
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .thin-frame::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(198,168,120,0.26);
+      pointer-events: none;
+    }
+
+    .nav-link {
+      color: #50473f;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+
+    .nav-link:hover { color: #9a7642; }
+
+    .botanical-mark {
+      width: 68px;
+      height: 32px;
+      position: relative;
+      opacity: 0.72;
+    }
+
+    .botanical-mark::before,
+    .botanical-mark::after {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 12px;
+      border: 1.4px solid var(--leaf);
+      border-radius: 100% 0 100% 0;
+      top: 8px;
+    }
+
+    .botanical-mark::before {
+      left: 8px;
+      transform: rotate(30deg);
+    }
+
+    .botanical-mark::after {
+      right: 8px;
+      transform: rotate(-30deg) scaleX(-1);
+    }
+
+    .hero-image-space {
+      width: 100%;
+      min-height: 560px;
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(198,168,120,0.22);
+      background: transparent;
+    }
+
+    .count-box {
+      min-width: 68px;
+      border-left: 1px solid var(--line);
+    }
+
+    .count-box:first-child { border-left: 0; }
+
+    .count-number {
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.55rem, 4vw, 2.25rem);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .section-kicker {
+      color: #9a7642;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .quote-line {
+      width: 42px;
+      height: 1px;
+      background: var(--champagne);
+    }
+
+    .button-elegant {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 54px;
+      padding: 0.9rem 1.35rem;
+      border: 1px solid transparent;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button-elegant:hover {
+      box-shadow: 0 10px 22px rgba(74, 55, 32, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .fade-up { animation: rise 800ms ease both; }
+    .fade-delay { animation-delay: 130ms; }
+    .fade-delay-2 { animation-delay: 250ms; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #wedding-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(255,255,255,.98), rgba(248,245,239,.98) 58%, rgba(236,228,216,1));
+      transition: opacity .9s ease, visibility .9s ease;
+    }
+    #wedding-loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-content { position: relative; z-index: 2; width: min(90%,560px); padding: 3rem 2rem; text-align: center; animation: loaderAppear 1.2s ease both; }
+    .loader-rings { position: relative; width: 100px; height: 70px; margin: 0 auto 1.5rem; }
+    .loader-ring { position: absolute; width: 55px; height: 55px; border: 2px solid var(--champagne); border-radius: 50%; top: 5px; animation: ringFloat 2.2s ease-in-out infinite; }
+    .loader-ring:first-child { left: 8px; }
+    .loader-ring:last-child { right: 8px; animation-delay: .25s; }
+    .loader-heart { position: absolute; left: 50%; top: 22px; transform: translateX(-50%); font-size: 1.25rem; animation: heartPulse 1.5s ease-in-out infinite; }
+    .loader-small { color: #9a7642; font-size: .62rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+    .loader-names { margin: .6rem 0; color: var(--ink); font-family: "Great Vibes", cursive; font-size: clamp(3rem,10vw,5rem); font-weight: 400; line-height: 1; }
+    .loader-message { margin-top: 1rem; color: #756b62; font-family: "Fraunces", serif; font-size: 1rem; font-style: italic; }
+    .loader-line { width: 42px; height: 1px; margin: 1.4rem auto 0; background: var(--champagne); animation: lineGrow 1.4s ease-in-out infinite alternate; }
+
+    @keyframes loaderAppear { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes ringFloat { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-7px) rotate(8deg); } }
+    @keyframes heartPulse { 0%,100% { transform: translateX(-50%) scale(.9); opacity: .7; } 50% { transform: translateX(-50%) scale(1.15); opacity: 1; } }
+    @keyframes lineGrow { from { transform: scaleX(.55); opacity: .45; } to { transform: scaleX(1.2); opacity: 1; } }
+
+    .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 850ms ease, transform 850ms ease; }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    #wedding-particles { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; }
+    .wedding-particle { position: absolute; top: -20px; color: rgba(198,168,120,.42); font-size: 8px; line-height: 1; opacity: 0; animation: weddingFall linear infinite; text-shadow: 0 0 5px rgba(255,255,255,.8); }
+    @keyframes weddingFall { 0% { transform: translate3d(0,-20px,0) rotate(0); opacity: 0; } 10% { opacity: .55; } 50% { transform: translate3d(18px,50vh,0) rotate(100deg); opacity: .4; } 90% { opacity: .3; } 100% { transform: translate3d(-12px,110vh,0) rotate(200deg); opacity: 0; } }
+
+    @media (max-width: 640px) {
+      .count-box { min-width: 59px; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/f7f78bb888aedc8b.editing_sdk.js" type="text/javascript" integrity="sha512-FnsIjjHYbuzZnvFce+wovjDrGOUu5OD5gu+V7whPsYYqDCayWnolRQ+eXrxs3zLkGluOVeM57qCWnB82hKGl2Q=="></script>
+  <script src="/_sdk/ddcab3e45959c817.resizing_sdk.js" type="text/javascript" integrity="sha512-VAviUKfZVzugWBSeULYjSljTX+nb84wc6Zzbx5GQaQgh6X2ISSjXi8eIiCDGdwDh10esJMY0+QFQgUy9NcrTlQ=="></script>
+</head>
+<body data-template-id="__page-root" class="w-full">
+  <div id="wedding-loader" aria-label="Bienvenidos a nuestra boda">
+    <div class="loader-content">
+      <div class="loader-rings" aria-hidden="true"><span class="loader-ring"></span><span class="loader-ring"></span><span class="loader-heart">🤍</span></div>
+      <div class="loader-small">Nuestra boda</div>
+      <div class="loader-names">Alejo &amp; Leidy</div>
+      <div class="loader-message">Una historia de amor está a punto de comenzar...</div>
+      <div class="loader-line"></div>
+    </div>
+  </div>
+  <div id="wedding-particles" aria-hidden="true"></div>
+
+  <header class="w-full sticky top-0 z-30 border-b border-stone-200/70 bg-[#fffdf8]/90 backdrop-blur">
+   <nav aria-label="Navegación principal" class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+    <a href="#inicio" class="editorial-font text-lg text-stone-800 no-underline">L&amp;A</a>
+    <div class="flex items-center gap-4 sm:gap-7">
+     <a class="nav-link" href="#ceremonia">Ceremonia</a> <a class="nav-link" href="#vestuario">Vestuario</a> <a class="nav-link" href="#ubicacion">Ubicación</a> <a class="nav-link hidden sm:inline" href="#confirmacion">Confirmar</a>
+    </div>
+   </nav>
+  </header>
+
+  <main>
+   <section id="inicio" data-template-id="hero-section" class="canva-section paper-texture w-full px-5 py-14 sm:px-8 sm:py-20" style="background: rgb(248, 245, 239);">
+    <div class="thin-frame mx-auto w-full max-w-6xl px-5 py-10 sm:px-12 sm:py-14">
+     <div class="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <img data-template-id="couple-illustration" loading="lazy" class="canva-image hero-image-space order-1 object-contain" aria-label="Ilustración de los novios" src="images/J+L.png" alt="Ilustración de los novios">
+      <div class="order-2 text-center lg:order-1 lg:text-left">
+       <div class="fade-up mb-5 flex justify-center lg:justify-start">
+        <div class="botanical-mark" aria-hidden="true"></div>
+       </div>
+       <p data-template-id="hero-kicker" class="canva-text fade-up section-kicker" style="color: rgb(154, 118, 66); font-weight: 700; font-style: normal; font-size: 16px; letter-spacing: 0.15rem;">Nuestra boda</p>
+       <h1 data-template-id="hero-names" class="canva-text names-script fade-up fade-delay mt-4 leading-none" style="color: rgb(30, 29, 26); font-weight: 400; font-style: normal; font-size: 54px; letter-spacing: -0.05rem;">Alejo y Leidy</h1>
+       <p data-template-id="hero-message" class="canva-text fade-up fade-delay mt-6 text-base leading-relaxed text-stone-600 sm:text-lg" style="color: rgb(94, 85, 77); font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.5;">Nos casamos… y sí, queremos que compartas esta fecha especial con nosotros </p>
+       <div class="fade-up fade-delay-2 mt-8 flex justify-center gap-6 lg:justify-start">
+        <div>
+         <p data-template-id="hero-date" class="canva-text text-sm font-bold tracking-[0.12em] text-stone-800" style="color: rgb(30, 29, 26); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">23 DE ENERO DE 2027</p>
+         <p class="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-stone-500">Sábado</p>
+        </div>
+        <div class="h-10 w-px bg-stone-300"></div>
+        <div>
+         <p data-template-id="hero-time" class="canva-text text-sm font-bold tracking-[0.12em] text-stone-800" style="color: rgb(30, 29, 26); font-weight: 700; font-style: normal; font-size: 14px; letter-spacing: 0.08rem;">3:30 P. M.</p>
+         <p class="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-stone-500">Tarde</p>
+        </div>
+       </div>
+       <a data-template-id="hero-ceremony-link" href="#ceremonia" class="canva-link fade-up fade-delay-2 mt-9 inline-flex items-center gap-2 border-b border-[#a98654] pb-2 text-[0.68rem] font-bold tracking-[0.15em] text-[#80643c] no-underline transition hover:text-stone-900" style="color: rgb(128, 100, 60); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Descubre la ceremonia ↓</a>
+      </div>
+     </div>
+    </div>
+    <div class="mx-auto mt-12 max-w-xl border-y border-stone-300/80 py-5">
+     <p data-template-id="countdown-label" class="canva-text mb-4 text-center text-[0.64rem] font-bold uppercase tracking-[0.17em] text-stone-500" style="color: rgb(109, 98, 88); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.15rem;">Falta muy poco para celebrar</p>
+     <div class="flex justify-center">
+      <div class="count-box px-3 text-center sm:px-5">
+       <div id="days" class="count-number">000</div>
+       <div class="mt-2 text-[0.58rem] font-bold uppercase tracking-[0.13em] text-stone-500">Días</div>
+      </div>
+      <div class="count-box px-3 text-center sm:px-5">
+       <div id="hours" class="count-number">00</div>
+       <div class="mt-2 text-[0.58rem] font-bold uppercase tracking-[0.13em] text-stone-500">Horas</div>
+      </div>
+      <div class="count-box px-3 text-center sm:px-5">
+       <div id="minutes" class="count-number">00</div>
+       <div class="mt-2 text-[0.58rem] font-bold uppercase tracking-[0.13em] text-stone-500">Minutos</div>
+      </div>
+      <div class="count-box px-3 text-center sm:px-5">
+       <div id="seconds" class="count-number">00</div>
+       <div class="mt-2 text-[0.58rem] font-bold uppercase tracking-[0.13em] text-stone-500">Segundos</div>
+      </div>
+     </div>
+    </div>
+    <p data-template-id="hero-humor" class="canva-text mx-auto mt-7 max-w-xl text-center text-sm italic text-stone-500" style="color: rgb(117, 107, 98); font-weight: 400; font-style: italic; font-size: 14px;">El baile depende de cuanto baile Alejo... Por lo tanto, prometemos no hacer un baile sorpresa.😂</p>
+   </section>
+
+   <section id="ceremonia" data-template-id="ceremony-section" class="canva-section w-full bg-[#fffdf8] px-5 py-20 sm:px-8 scroll-reveal" style="background: rgb(255, 253, 248);">
+    <div class="mx-auto grid w-full max-w-5xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+     <div>
+      <div class="botanical-mark mb-4" aria-hidden="true"></div>
+      <h2 data-template-id="ceremony-title" class="canva-text section-title mt-4" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 24px;">CEREMONIA</h2>
+      <div class="quote-line mt-6"></div>
+     </div>
+     <div class="border-l border-[#c6a878]/60 pl-6 sm:pl-9">
+      <p data-template-id="ceremony-intro" class="canva-text text-base leading-relaxed text-stone-600" style="color: rgb(98, 89, 81); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.6;">Celebraremos nuestra boda, rodeados de amor, gratitud y con las personas que más queremos.</p>
+      <blockquote data-template-id="ceremony-verse" class="canva-text editorial-font mt-7 text-2xl leading-snug text-stone-800 sm:text-3xl" style="color: rgb(41, 39, 32); font-weight: 400; font-style: normal; font-size: 28px; line-height: 1.35;">''Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor''.</blockquote>
+      <p data-template-id="ceremony-reference" class="canva-text mt-4 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#927343]" style="color: rgb(146, 115, 67); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.16rem;">1 Corintios 13:13</p>
+      <p data-template-id="ceremony-humor" class="canva-text mt-8 text-sm italic leading-relaxed text-stone-500" style="color: rgb(117, 107, 98); font-weight: 400; font-style: italic; font-size: 14px;">Queremos compartir contigo el día en que oficialmente seremos un equipo para toda la vida. Trae ganas de reír, abrazar y comer rico. Lo demás lo ponemos nosotros.</p>
+     </div>
+    </div>
+   </section>
+
+   <section id="vestuario" data-template-id="dress-section" class="canva-section paper-texture w-full px-5 py-20 sm:px-8 scroll-reveal" style="background: rgb(248, 245, 239);">
+    <div class="mx-auto w-full max-w-6xl">
+     <div class="mx-auto max-w-2xl text-center">
+      <p data-template-id="dress-kicker" class="canva-text section-kicker" style="color: rgb(154, 118, 66); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.18rem;">Tarde tropical, elegancia relajada</p>
+      <h2 data-template-id="dress-title" class="canva-text section-title mt-4" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 24px;">¿QUÉ ME PONGO?</h2>
+      <div class="mx-auto mt-6 botanical-mark" aria-hidden="true"></div>
+      <p data-template-id="dress-women" class="canva-text mt-7 text-base leading-relaxed text-stone-700" style="color: rgb(69, 62, 55); font-weight: 500; font-style: normal; font-size: 16px;">Mujeres: vestido largo, elegante y tropical.</p>
+      <p data-template-id="dress-men" class="canva-text mt-2 text-base leading-relaxed text-stone-700" style="color: rgb(69, 62, 55); font-weight: 500; font-style: normal; font-size: 16px;">Hombres: blazer, elegante y fresco.</p>
+      <aside data-template-id="dress-note" class="canva-banner mx-auto mt-8 max-w-xl border border-[#cbb78f] bg-[#f8f1e5] px-5 py-4 text-sm font-medium leading-relaxed text-[#66523c]" style="background: rgb(248, 241, 229); color: rgb(102, 82, 60); font-weight: 600; font-style: normal; font-size: 14px; line-height: 1.5;">Una pequeña nota sobre el dress code 🤍<br><br>Por tratarse de una celebración de día, cerca al mar, evita usar color negro, queremos mantener una paleta fresca, luminosa y elegante.<br><br>Agradecemos evitar en el vestuario los tonos blanco, marfil, crema, champagne, beige y tonalidades muy similares.<br><br>¡La idea es que juntos llenemos este día de color y alegría! ✨</aside>
+     </div>
+     <div class="mt-10 text-center">
+      <a data-template-id="dress-guide-button" href="https://pin.it/5siXyoTEv" class="canva-button button-elegant bg-[#25231f] text-[#fffdf8] no-underline" style="background: rgb(37, 35, 31); color: rgb(255, 253, 248); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">VER GUÍA DE VESTUARIO</a>
+     </div>
+    </div>
+   </section>
+
+   <section id="ubicacion" data-template-id="location-section" class="canva-section w-full bg-[#27251f] px-5 py-20 text-[#fffdf8] sm:px-8 scroll-reveal" style="background: rgb(39, 37, 31);">
+    <div class="mx-auto max-w-3xl text-center">
+     <div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-[#cfb68d]/60 text-[#dec99f]">
+      <i data-lucide="map-pin" aria-hidden="true" style="width:21px;height:21px"></i>
+     </div>
+     <p data-template-id="location-kicker" class="canva-text text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#d2bc91]" style="color: rgb(210, 188, 145); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.2rem;">Guarda este momento</p>
+     <h2 data-template-id="location-title" class="canva-text editorial-font mt-4 leading-tight" style="color: rgb(255, 253, 248); font-weight: 500; font-style: normal; font-size: 24px;">¿DÓNDE NOS VEMOS?</h2>
+     <p data-template-id="location-date-time" class="canva-text mt-6 text-base text-stone-200" style="color: rgb(231, 223, 211); font-weight: 400; font-style: normal; font-size: 16px;">Casa Andrea Country Club <br>Via Sabanilla <br><br>23 de enero de 2027 · 4:30 P. M.</p>
+     <a data-template-id="location-button" href="https://share.google/WIDpwujD8RUaJ3rUK" target="_blank" rel="noopener noreferrer" class="canva-button button-elegant mt-9 bg-[#d0b17b] text-[#25231f] no-underline" style="background: rgb(208, 177, 123); color: rgb(37, 35, 31); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">📍 VER UBICACIÓN</a>
+    </div>
+   </section>
+
+   <section id="regalos" data-template-id="gift-section" class="canva-section w-full bg-[#fffdf8] px-5 py-20 sm:px-8 scroll-reveal" style="background: rgb(255, 253, 248);">
+    <div class="thin-frame mx-auto max-w-3xl px-6 py-12 text-center sm:px-12">
+     <div data-template-id="gift-icon" class="canva-panel mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#c6a878] bg-[#f8f1e5] text-[#927343]" style="background: rgb(248, 241, 229); color: rgb(146, 115, 67);">
+      <i data-lucide="mail" aria-hidden="true" style="width:23px;height:23px"></i>
+     </div>
+     <p data-template-id="gift-kicker" class="canva-text section-kicker mt-6" style="color: rgb(154, 118, 66); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.18rem;">Con cariño</p>
+     <h2 data-template-id="gift-title" class="canva-text section-title mt-4" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 24px;">¿REGALO?</h2>
+     <p data-template-id="gift-main-text" class="canva-text mt-7 text-lg text-stone-700" style="color: rgb(69, 62, 55); font-weight: 500; font-style: normal; font-size: 18px;">Tu presencia es nuestro mejor regalo.</p>
+     <p data-template-id="gift-secondary-text" class="canva-text mx-auto mt-3 max-w-xl text-sm leading-relaxed text-stone-500" style="color: rgb(117, 107, 98); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.6;">Pero si quieres ayudarnos a comenzar esta nueva etapa, tendremos Lluvia de Sobres. 🤍</p>
+    </div>
+   </section>
+
+   <!-- SECCIÓN CONFIRMACIÓN RSVP -->
+   <section id="confirmacion" data-template-id="rsvp-section" class="canva-section paper-texture w-full px-5 py-20 sm:px-8 scroll-reveal" style="background: rgb(248, 245, 239);">
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto botanical-mark" aria-hidden="true"></div>
+      <img src="images/j+l.png" alt="Alejo y Leidy" class="mx-auto mb-6" style="width: 150px; height: 150px; object-fit: contain;">
+      <p data-template-id="rsvp-kicker" class="canva-text section-kicker mt-5" style="color: rgb(154, 118, 66); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.18rem;">La mesa está esperando</p>
+      <h2 data-template-id="rsvp-title" class="canva-text section-title mx-auto mt-4 max-w-2xl" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 24px;">¿VIENES A CELEBRAR CON NOSOTROS?</h2>
+      <p data-template-id="rsvp-text" class="canva-text mx-auto mt-6 max-w-xl text-base leading-relaxed text-stone-600" style="color: rgb(98, 89, 81); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.6;">Necesitamos saber si contamos contigo… porque el catering necesita números y nosotros también. 😂</p>
+      <div class="mx-auto mt-8 max-w-xl text-left">
+        <label data-template-id="rsvp-name-label" for="rsvp-name" class="canva-text mb-2 block text-[0.68rem] font-bold uppercase tracking-[0.15em] text-stone-600" style="color: rgb(98, 89, 81); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.15rem;">Tu nombre</label>
+        <input data-template-id="rsvp-name-input" id="rsvp-name" type="text" autocomplete="name" class="canva-input w-full border-0 border-b border-[#a98654] bg-transparent px-1 py-3 text-base text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-[#80643c] focus:ring-0" style="color: rgb(41, 39, 32); font-size: 16px;">
+      </div>
+
+      <!-- Únicamente 2 botones -->
+      <div class="mx-auto mt-6 flex flex-col gap-3 max-w-xl sm:flex-row">
+        <button id="btn-si" type="button" onclick="procesarRespuesta('Sí, allá estaré')" class="canva-btn w-full rounded bg-[#9a7642] px-4 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#80643c]">
+          SÍ, ALLÁ ESTARÉ 🤍
+        </button>
+
+        <button id="btn-no" type="button" onclick="procesarRespuesta('No podré acompañarlos')" class="canva-btn w-full rounded border border-[#9a7642] px-4 py-3 text-sm font-semibold text-[#9a7642] transition hover:bg-[#9a7642]/10">
+          NO PODRÉ ACOMPAÑARLOS
+        </button>
+      </div>
+
+      <!-- Mensaje de estado -->
+      <p id="rsvp-mensaje" class="mt-4 text-center text-sm font-medium" style="color: rgb(154, 118, 66);"></p>
+    </div>
+   </section>
+  </main>
+
+  <footer data-template-id="footer-section" class="canva-footer w-full bg-[#ece4d8] px-5 py-16 sm:px-8 scroll-reveal" style="background: rgb(236, 228, 216);">
+   <div class="mx-auto max-w-3xl text-center">
+    <p data-template-id="footer-humor" class="canva-text text-sm italic text-stone-600" style="color: rgb(98, 89, 81); font-weight: 400; font-style: italic; font-size: 14px;">Nos vemos en el altar. Y por favor… ¡no llegues tarde! Ya tenemos suficiente con organizar una boda.</p>
+    <p data-template-id="footer-promise" class="canva-text mt-3 text-sm text-stone-500" style="color: rgb(117, 107, 98); font-weight: 400; font-style: normal; font-size: 14px;">Hecho con amor para celebrar el nuestro.</p>
+    <div class="mx-auto my-7 botanical-mark" aria-hidden="true"></div>
+    <p data-template-id="footer-names" class="canva-text editorial-font text-stone-800" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 30px;">Leidy &amp; Alejo</p>
+    <p data-template-id="footer-date" class="canva-text mt-3 text-[0.63rem] font-bold uppercase tracking-[0.2em] text-stone-500" style="color: rgb(117, 107, 98); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.2rem;">23 · 01 · 2027</p>
+   </div>
+  </footer>
+
+  <script>
+    // Contador regresivo
+    const targetDate = new Date("2027-01-23T16:30:00-05:00").getTime();
+
+    function updateCountdown() {
+      const remaining = Math.max(0, targetDate - Date.now());
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(3, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    // Loader de bienvenida
+    const weddingLoader = document.getElementById("wedding-loader");
+    const particlesContainer = document.getElementById("wedding-particles");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => weddingLoader.classList.add("hide"), 2300);
+    });
+
+    // Partículas
+    const particleSymbols = ["✦", "·", "✧", "♡"];
+    for (let i = 0; i < 18; i++) {
+      const particle = document.createElement("span");
+      particle.className = "wedding-particle";
+      particle.textContent = particleSymbols[i % particleSymbols.length];
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${11 + Math.random() * 12}s`;
+      particle.style.animationDelay = `${Math.random() * 12}s`;
+      particle.style.fontSize = `${5 + Math.random() * 5}px`;
+      particlesContainer.appendChild(particle);
+    }
+
+    // Animaciones al hacer scroll
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("visible"));
+    }
+
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+
+    // =======================================================
+    // PROCESAMIENTO UNIFICADO: GOOGLE SHEETS + WHATSAPP
+    // =======================================================
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPe589tXm-wXYiefT1iw2Ztf7tNvzAD82Rl53LAwgAvkxJtSDea4G_MnBzs5ozuvui/exec";
+    const whatsappNumber = "573002552137";
+
+    function procesarRespuesta(asistencia) {
+      const nombreInput = document.getElementById("rsvp-name");
+      const mensajeEstado = document.getElementById("rsvp-mensaje");
+      const btnSi = document.getElementById("btn-si");
+      const btnNo = document.getElementById("btn-no");
+      
+      const nombre = nombreInput.value.trim();
+
+      if (!nombre) {
+        mensajeEstado.style.color = "#d9534f";
+        mensajeEstado.innerText = "Por favor, escribe tu nombre antes de responder.";
+        nombreInput.focus();
+        return;
+      }
+
+      // Deshabilitar botones mientras procesa
+      btnSi.disabled = true;
+      btnNo.disabled = true;
+      mensajeEstado.style.color = "#9a7642";
+      mensajeEstado.innerText = "Registrando tu respuesta...";
+
+      // 1. Guardar datos en Google Sheets
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nombre: nombre,
+          asistencia: asistencia
+        })
+      })
+      .then(() => {
+        mensajeEstado.style.color = "#2e7d32";
+        mensajeEstado.innerText = `¡Gracias, ${nombre}! Tu respuesta fue guardada. Redirigiendo a WhatsApp...`;
+      })
+      .catch(error => {
+        console.error("Error Sheets:", error);
+      })
+      .finally(() => {
+        btnSi.disabled = false;
+        btnNo.disabled = false;
+      });
+
+      // 2. Construir mensaje y abrir WhatsApp
+      let mensajeWA = "";
+      if (asistencia === "Sí, allá estaré") {
+        mensajeWA = `Hola, soy ${nombre}.\n\nConfirmo mi asistencia a la boda de Alejo y Leidy.\n\n 23 de enero de 2027\n 03:30 P. M.\n\n¡Nos vemos para celebrar juntos! `;
+      } else {
+        mensajeWA = `Hola, soy ${nombre}.\n\nLamentablemente no podré acompañarlos en la boda de Alejo y Leidy el 23 de enero de 2027.\n\nLes deseo una hermosa celebración. `;
+      }
+
+      const urlWA = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensajeWA)}`;
+
+      setTimeout(() => {
+        window.open(urlWA, '_blank');
+        nombreInput.value = "";
+      }, 800);
+    }
+  </script>
+</body>
+</html>
