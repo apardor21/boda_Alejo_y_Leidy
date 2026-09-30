@@ -189,6 +189,48 @@
     .loader-names { margin: .6rem 0; color: var(--ink); font-family: "Great Vibes", cursive; font-size: clamp(3rem,10vw,5rem); font-weight: 400; line-height: 1; }
     .loader-message { margin-top: 1rem; color: #756b62; font-family: "Fraunces", serif; font-size: 1rem; font-style: italic; }
     .loader-line { width: 42px; height: 1px; margin: 1.4rem auto 0; background: var(--champagne); animation: lineGrow 1.4s ease-in-out infinite alternate; }
+    .music-start-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      margin-top: 1.5rem;
+      padding: .8rem 1.25rem;
+      border: 1px solid rgba(154,118,66,.45);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      color: #7d6038;
+      font-family: "Fraunces", serif;
+      font-size: .9rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(80,60,40,.08);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .music-start-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.95); box-shadow: 0 10px 28px rgba(80,60,40,.12); }
+    .music-start-btn:active { transform: translateY(0); }
+    .music-hint { margin-top: .55rem; color: #9a9188; font-size: .72rem; }
+    #music-toggle {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 9998;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(154,118,66,.35);
+      border-radius: 50%;
+      background: rgba(255,253,248,.9);
+      color: #8a693e;
+      box-shadow: 0 8px 24px rgba(60,45,30,.12);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    #music-toggle:hover { transform: scale(1.06); }
+    #music-toggle.is-muted { opacity: .72; }
+    #music-toggle svg { width: 19px; height: 19px; }
 
     @keyframes loaderAppear { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
     @keyframes ringFloat { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-7px) rotate(8deg); } }
@@ -218,9 +260,26 @@
       <div class="loader-small">Nuestra boda</div>
       <div class="loader-names">Alejo &amp; Leidy</div>
       <div class="loader-message">Una historia de amor está a punto de comenzar...</div>
+      <button id="music-start" class="music-start-btn" type="button" aria-label="Entrar y activar la música">
+        <span>♡</span>
+        <span>Entrar y escuchar música</span>
+      </button>
+      <div class="music-hint">Toca para comenzar la experiencia</div>
       <div class="loader-line"></div>
     </div>
   </div>
+
+  <!-- Música de la invitación.
+       Coloca el archivo como: musica/audio.mpeg -->
+  <audio id="musicaBoda" loop preload="auto">
+    <source src="musica/audio.mpeg" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <button id="music-toggle" class="is-muted" type="button" aria-label="Activar música" title="Activar música">
+    <i data-lucide="volume-2"></i>
+  </button>
+
   <div id="wedding-particles" aria-hidden="true"></div>
 
   <header class="w-full sticky top-0 z-30 border-b border-stone-200/70 bg-[#fffdf8]/90 backdrop-blur">
@@ -400,9 +459,85 @@
     const weddingLoader = document.getElementById("wedding-loader");
     const particlesContainer = document.getElementById("wedding-particles");
 
+    const musicaBoda = document.getElementById("musicaBoda");
+    const musicStart = document.getElementById("music-start");
+    const musicToggle = document.getElementById("music-toggle");
+
+    let musicaActiva = false;
+
+    function actualizarBotonMusica() {
+      if (!musicToggle) return;
+
+      if (musicaBoda.paused) {
+        musicToggle.classList.add("is-muted");
+        musicToggle.setAttribute("aria-label", "Activar música");
+        musicToggle.setAttribute("title", "Activar música");
+        musicToggle.innerHTML = '<i data-lucide="volume-x"></i>';
+      } else {
+        musicToggle.classList.remove("is-muted");
+        musicToggle.setAttribute("aria-label", "Pausar música");
+        musicToggle.setAttribute("title", "Pausar música");
+        musicToggle.innerHTML = '<i data-lucide="volume-2"></i>';
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    async function iniciarMusica() {
+      try {
+        await musicaBoda.play();
+        musicaActiva = true;
+        actualizarBotonMusica();
+        return true;
+      } catch (error) {
+        console.log("El navegador bloqueó la reproducción automática:", error);
+        musicaActiva = false;
+        actualizarBotonMusica();
+        return false;
+      }
+    }
+
+    function cerrarBienvenida() {
+      weddingLoader.classList.add("hide");
+    }
+
+    if (musicStart) {
+      musicStart.addEventListener("click", async () => {
+        await iniciarMusica();
+        cerrarBienvenida();
+      });
+    }
+
+    if (musicToggle) {
+      musicToggle.addEventListener("click", async () => {
+        if (musicaBoda.paused) {
+          await iniciarMusica();
+        } else {
+          musicaBoda.pause();
+          actualizarBotonMusica();
+        }
+      });
+    }
+
+    musicaBoda.addEventListener("play", actualizarBotonMusica);
+    musicaBoda.addEventListener("pause", actualizarBotonMusica);
+
+    // Si el visitante no pulsa el botón de bienvenida, la invitación continúa
+    // después de unos segundos. La música comenzará en el primer toque/clic
+    // posterior, siempre que el navegador lo permita.
     window.addEventListener("load", () => {
-      setTimeout(() => weddingLoader.classList.add("hide"), 2300);
+      setTimeout(() => {
+        if (!musicaActiva) cerrarBienvenida();
+      }, 4500);
     });
+
+    document.addEventListener("click", () => {
+      if (!musicaActiva && musicaBoda.paused) iniciarMusica();
+    }, { once: true });
+
+    document.addEventListener("touchstart", () => {
+      if (!musicaActiva && musicaBoda.paused) iniciarMusica();
+    }, { once: true });
 
     // Partículas
     const particleSymbols = ["✦", "·", "✧", "♡"];
@@ -444,7 +579,7 @@
     // PROCESAMIENTO UNIFICADO: GOOGLE SHEETS + WHATSAPP
     // =======================================================
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPe589tXm-wXYiefT1iw2Ztf7tNvzAD82Rl53LAwgAvkxJtSDea4G_MnBzs5ozuvui/exec";
-    const whatsappNumber = "573008386738";
+    const whatsappNumber = "573002552137";
 
     function procesarRespuesta(asistencia) {
       const nombreInput = document.getElementById("rsvp-name");
