@@ -247,7 +247,90 @@
       .count-box { min-width: 59px; }
     }
     
-  </style>
+  
+    /* =========================================================
+       CELEBRACIÓN DE LA SECCIÓN DE CONFIRMACIÓN
+       ========================================================= */
+    #rsvp-confetti {
+      position: fixed;
+      inset: 0;
+      z-index: 9997;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    #rsvp-confetti.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .rsvp-confetti-piece {
+      position: absolute;
+      top: -70px;
+      width: 8px;
+      height: 15px;
+      border-radius: 2px;
+      opacity: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      animation: rsvpConfettiFall var(--fall-duration) cubic-bezier(.18,.72,.25,1) forwards;
+      will-change: transform, opacity;
+    }
+
+    .rsvp-confetti-symbol {
+      position: absolute;
+      top: -60px;
+      font-size: 22px;
+      line-height: 1;
+      opacity: 0;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,.12));
+      animation: rsvpSymbolFall var(--symbol-duration) cubic-bezier(.18,.72,.25,1) forwards;
+      will-change: transform, opacity;
+    }
+
+    @keyframes rsvpConfettiFall {
+      0% {
+        transform: translate3d(0,-70px,0) rotate(0deg);
+        opacity: 0;
+      }
+      8% {
+        opacity: .95;
+      }
+      55% {
+        opacity: .9;
+      }
+      100% {
+        transform: translate3d(var(--drift),110vh,0) rotate(var(--rotation));
+        opacity: 0;
+      }
+    }
+
+    @keyframes rsvpSymbolFall {
+      0% {
+        transform: translate3d(0,-60px,0) rotate(0deg) scale(.75);
+        opacity: 0;
+      }
+      12% {
+        opacity: 1;
+      }
+      55% {
+        opacity: .95;
+      }
+      100% {
+        transform: translate3d(var(--symbol-drift),110vh,0) rotate(var(--symbol-rotation)) scale(1.08);
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #rsvp-confetti {
+        display: none;
+      }
+    }
+
+</style>
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
   <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
@@ -282,6 +365,9 @@
   </button>
 
   <div id="wedding-particles" aria-hidden="true"></div>
+
+  <!-- CELEBRACIÓN AL LLEGAR A CONFIRMACIÓN -->
+  <div id="rsvp-confetti" aria-hidden="true"></div>
 
   <header class="w-full sticky top-0 z-30 border-b border-stone-200/70 bg-[#fffdf8]/90 backdrop-blur">
    <nav aria-label="Navegación principal" class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
@@ -403,7 +489,7 @@
    <section id="confirmacion" data-template-id="rsvp-section" class="canva-section paper-texture w-full px-5 py-20 sm:px-8 scroll-reveal" style="background: rgb(248, 245, 239);">
     <div class="mx-auto max-w-3xl text-center">
       <div class="mx-auto botanical-mark" aria-hidden="true"></div>
-      <img src="images/stick.jpg" alt="Alejo y Leidy" class="mx-auto mb-6" style="width: 150px; height: 150px; object-fit: contain;">
+      <img src="images/stick3.png" alt="Alejo y Leidy" class="mx-auto mb-6" style="width: 150px; height: 150px; object-fit: contain;">
       <p data-template-id="rsvp-kicker" class="canva-text section-kicker mt-5" style="color: rgb(154, 118, 66); font-weight: 700; font-style: normal; font-size: 10px; letter-spacing: 0.18rem;">La mesa está esperando</p>
       <h2 data-template-id="rsvp-title" class="canva-text section-title mx-auto mt-4 max-w-2xl" style="color: rgb(30, 29, 26); font-weight: 500; font-style: normal; font-size: 24px;">¿VIENES A CELEBRAR CON NOSOTROS?</h2>
       <p data-template-id="rsvp-text" class="canva-text mx-auto mt-6 max-w-xl text-base leading-relaxed text-stone-600" style="color: rgb(98, 89, 81); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.6;">Necesitamos saber si contamos contigo… porque el catering necesita números y nosotros también. 😂</p>
@@ -554,6 +640,140 @@
     }
 
     // Animaciones al hacer scroll
+
+    /* =========================================================
+       CELEBRACIÓN AL ENTRAR EN "CONFIRMACIÓN"
+       ========================================================= */
+    const rsvpSection = document.getElementById("confirmacion");
+    const rsvpConfetti = document.getElementById("rsvp-confetti");
+
+    let rsvpCelebrationShown = false;
+    let rsvpCelebrationTimer = null;
+
+    function lanzarCelebracionRSVP() {
+      if (!rsvpConfetti || rsvpCelebrationShown) return;
+
+      rsvpCelebrationShown = true;
+      clearTimeout(rsvpCelebrationTimer);
+
+      rsvpConfetti.innerHTML = "";
+      rsvpConfetti.classList.add("active");
+
+      // Paleta de la invitación: elegante y festiva.
+      const confettiColors = [
+        "#c6a878",
+        "#9a8878",
+        "#607664",
+        "#d8c39b",
+        "#b98f8f",
+        "#eadfc9"
+      ];
+
+      // Confeti físico.
+      for (let i = 0; i < 85; i++) {
+        const piece = document.createElement("span");
+        piece.className = "rsvp-confetti-piece";
+
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.width = `${5 + Math.random() * 7}px`;
+        piece.style.height = `${9 + Math.random() * 12}px`;
+        piece.style.background = confettiColors[
+          Math.floor(Math.random() * confettiColors.length)
+        ];
+
+        piece.style.setProperty(
+          "--fall-duration",
+          `${3.4 + Math.random() * 2.2}s`
+        );
+
+        piece.style.setProperty(
+          "--drift",
+          `${-150 + Math.random() * 300}px`
+        );
+
+        piece.style.setProperty(
+          "--rotation",
+          `${360 + Math.random() * 1080}deg`
+        );
+
+        piece.style.animationDelay = `${Math.random() * 0.75}s`;
+
+        if (Math.random() > 0.55) {
+          piece.style.borderRadius = "50%";
+        }
+
+        rsvpConfetti.appendChild(piece);
+      }
+
+      // Elementos alusivos a celebración.
+      const celebrationSymbols = [
+        "🎉", "🎊", "✨", "💖", "🤍", "🥂", "✦", "✧", "♡"
+      ];
+
+      for (let i = 0; i < 18; i++) {
+        const symbol = document.createElement("span");
+        symbol.className = "rsvp-confetti-symbol";
+        symbol.textContent =
+          celebrationSymbols[
+            Math.floor(Math.random() * celebrationSymbols.length)
+          ];
+
+        symbol.style.left = `${Math.random() * 96 + 2}%`;
+        symbol.style.fontSize = `${17 + Math.random() * 15}px`;
+
+        symbol.style.setProperty(
+          "--symbol-duration",
+          `${3.8 + Math.random() * 1.8}s`
+        );
+
+        symbol.style.setProperty(
+          "--symbol-drift",
+          `${-130 + Math.random() * 260}px`
+        );
+
+        symbol.style.setProperty(
+          "--symbol-rotation",
+          `${-360 + Math.random() * 720}deg`
+        );
+
+        symbol.style.animationDelay = `${0.15 + Math.random() * 0.9}s`;
+
+        rsvpConfetti.appendChild(symbol);
+      }
+
+      // La celebración permanece unos segundos.
+      rsvpCelebrationTimer = setTimeout(() => {
+        rsvpConfetti.classList.remove("active");
+
+        setTimeout(() => {
+          if (rsvpConfetti) rsvpConfetti.innerHTML = "";
+        }, 400);
+      }, 5600);
+    }
+
+    if (
+      rsvpSection &&
+      rsvpConfetti &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      if ("IntersectionObserver" in window) {
+        const rsvpCelebrationObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && entry.intersectionRatio >= 0.28) {
+                lanzarCelebracionRSVP();
+              }
+            });
+          },
+          { threshold: [0.28] }
+        );
+
+        rsvpCelebrationObserver.observe(rsvpSection);
+      } else {
+        setTimeout(lanzarCelebracionRSVP, 1000);
+      }
+    }
+
     const revealElements = document.querySelectorAll(".scroll-reveal");
     if ("IntersectionObserver" in window) {
       const revealObserver = new IntersectionObserver((entries, observer) => {
